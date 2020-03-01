@@ -10,7 +10,9 @@
 
   <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  
 </head>
 <body>
@@ -36,16 +38,47 @@
     <button type="button" class="btn btn-danger">3</button>
     </div>   
 <script>
+        var trivia = {
+        questions: ["What are variables used for in JavaScript Programs?","Javascript is what type of language?","What is meant by the THIS keyword in javascript?","What is the JavaScript syntax for printing values in Console?"],
+        choices:[
+                  ["storing numbers, dates, or other values","varying randomly","causing high-school algebra flashbacks"],
+                  ["Programming","Application","Scripting"],
+                  ["It refers current object","It refers previous object","None of the above"],
+                  ["print(5)","console.log(5)","print.consol(5)"]
+                ],
+        answer:["storing numbers, dates, or other values","Scripting","It refers current object","console.log(5)"],     
+     };
+
         var questions = {
-        q1: ["What are variables used for in JavaScript Programs?"],
-        q2: ["What should appear at the very end of your JavaScript?"],
-        q3: ["What is mean by .this keyword in javascript?"],
-        q4: ["What is the JavaScript syntax for printing values in Console?"],
-        
+        q1: ["What are variables used for in JavaScript Programs?", "storing numbers, dates, or other values"],
+        q2: ["Javascript is what type of language?", "Scripting"],
+        q3: ["What is meant by the THIS keyword in javascript?", "It refers current object"],
+        q4: ["What is the JavaScript syntax for printing values in Console?", "console.log(5)"]
+        };
+
+        console.log(questions)
+      var score = 0;
+      // Variable to hold the index of current question.
+      var questionIndex = 0;
+      // Array of questions.
+      var questionsArray = [questions.q1, questions.q2, questions.q3, questions.q4];
+
+      function renderQuestion() {
+        // If there are still more questions, render the next one.
+        if (questionIndex <= (questionsArray.length - 1)) {
+          document.querySelector("#question").innerHTML = questionsArray[questionIndex][0];
+        }
+        // If there aren't, render the end game screen.
+        else {
+          document.querySelector("#question").innerHTML = "Game Over!";
+          document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questionsArray.length;
+        }
+
       };
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      renderQuestion();
+
+      
+    </script>
 </body>
 </html>
