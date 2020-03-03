@@ -33,16 +33,16 @@
     <p id="score"></p>
     <p id="question"></p>    
     <div class="btn-group-vertical">
-    <button type="button" class="btn btn-danger">1</button>
-    <button type="button" class="btn btn-danger">2</button>
-    <button type="button" class="btn btn-danger">3</button>
+    <button type="button" id = "Button-1" class="btn btn-danger">1</button>
+    <button type="button" id = "Button-2" class="btn btn-danger">2</button>
+    <button type="button" id = "Button-3"class="btn btn-danger">3</button>
     </div>   
 <script>
         var trivia = {
         questions: ["What are variables used for in JavaScript Programs?","Javascript is what type of language?","What is meant by the THIS keyword in javascript?","What is the JavaScript syntax for printing values in Console?"],
         choices:[
-                  ["storing numbers, dates, or other values","varying randomly","causing high-school algebra flashbacks"],
-                  ["Programming","Application","Scripting"],
+                  ["storing numbers, dates, or other values"], ["varying randomly"], ["causing high-school algebra flashbacks"],
+                  ["Programming"], ["Application"],["Scripting"],
                   ["It refers current object","It refers previous object","None of the above"],
                   ["print(5)","console.log(5)","print.consol(5)"]
                 ],
@@ -66,9 +66,16 @@
       function renderQuestion() {
         // If there are still more questions, render the next one.
         if (questionIndex <= (questionsArray.length - 1)) {
-          document.querySelector("#question").innerHTML = questionsArray[questionIndex][0];
+    //i to for loop through the questions    
+          document.querySelector("#question").innerHTML = questionsArray[questionIndex][i];
+          for (var i = 0; i < questionsArray.length; i++)
+        $("#Button-1").text(trivia.choices[0]);
+        $("#Button-2").text(trivia.choices[1]);
+        $("#Button-3").text(trivia.choices[2]);
+
         }
-        // If there aren't, render the end game screen.
+
+                // If there aren't, render the end game screen.
         else {
           document.querySelector("#question").innerHTML = "Game Over!";
           document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questionsArray.length;
@@ -78,7 +85,7 @@
 
       renderQuestion();
 
-      
+
     </script>
 </body>
 </html>
