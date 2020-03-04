@@ -1,2 +1,2 @@
 # code-quiz
-This is the repo for the fourth homework assignment.
+This is the repo for the fourth homework assignment. I have added script sources for jquery, javascript, and bbotstrap. I have declared my quiz questions, choices and answers in an object. I have added buttons with some CSS styling in the html. I have defined variables defining the score, question index to hold the current question to be displayed and an array of questions. I have defined a function to render the questions, a for loop to iterate through the questions and have made the first question and series of three choices appear. I have attempted to create a function use jquery to iterate through the questions, choices and possible answers. 
